@@ -2,13 +2,17 @@ import Booking from '../models/Booking.js'
 import sendEmail from '../utils/sendEmail.js'
 
 export const createBooking = async (req, res) => {
-  const booking = await Booking.create(req.body)
-  await sendEmail({
-    to: req.body.email,
-    subject: 'Booking Request Received — Kyoudai Hostel',
-    text: `Hi ${req.body.name}, we received your booking request. We will confirm shortly. — Kyoudai Hostel, Kirtipur`,
-  })
-  res.status(201).json(booking)
+  try {
+    const booking = await Booking.create(req.body)
+    sendEmail({
+      to: req.body.email,
+      subject: 'Booking Request Received — Kyoudai Hostel',
+      text: `Hi ${req.body.name}, we received your booking request. We will confirm shortly. — Kyoudai Hostel, Kirtipur`,
+    }).catch(() => {})
+    res.status(201).json(booking)
+  } catch (err) {
+    res.status(400).json({ message: err.message })
+  }
 }
 
 export const getBookings = async (req, res) => {
