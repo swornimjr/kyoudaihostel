@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import diningPhoto from '../assets/dinner-lunch.jpeg'
+import loungePhoto from '../assets/lounge.jpeg'
 
 const amenities = [
   {
@@ -71,6 +73,24 @@ export default function Amenities() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Photo strip */}
+      <section className="max-w-6xl mx-auto px-4 pb-20 w-full">
+        <div className="text-center mb-10">
+          <p className="text-xs tracking-[0.4em] text-[#B5202A] mb-3">INSIDE KYOUDAI</p>
+          <h2 className="font-serif text-3xl font-bold text-[#1C2B4B]">A Glimpse of Life Here</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="flex flex-col gap-3">
+            <img src={diningPhoto} alt="Dining area" className="rounded-lg w-full h-64 object-cover" />
+            <p className="text-xs tracking-[0.3em] text-gray-400 text-center">DINING AREA</p>
+          </div>
+          <div className="flex flex-col gap-3">
+            <img src={loungePhoto} alt="Lounge" className="rounded-lg w-full h-64 object-cover" />
+            <p className="text-xs tracking-[0.3em] text-gray-400 text-center">COMMON LOUNGE</p>
+          </div>
         </div>
       </section>
 
