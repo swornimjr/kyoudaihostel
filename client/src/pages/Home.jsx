@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import heroImage from '../assets/hero-image.png'
 
 const highlights = [
   { icon: '🍱', title: 'Meals Included', desc: 'Breakfast, lunch and dinner prepared fresh daily.' },
@@ -20,9 +21,9 @@ export default function Home() {
     <div className="flex flex-col">
 
       {/* Hero */}
-      <section className="bg-[#1C2B4B] text-white min-h-[90vh] flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5"
-          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #C9962A 0, #C9962A 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
+      <section className="text-white min-h-[90vh] flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroImage})` }} />
+        <div className="absolute inset-0 bg-[#1C2B4B]/50" />
         <div className="relative z-10 flex flex-col items-center gap-6 max-w-2xl">
           <p className="text-xs tracking-[0.4em] text-[#C9962A]">KIRTIPUR · KATHMANDU, NEPAL</p>
           <h1 className="font-serif text-5xl md:text-7xl font-bold tracking-[0.15em]">KYOUDAI</h1>
