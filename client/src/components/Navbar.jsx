@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import Logo from './Logo'
 
 const links = [
   { to: '/', label: 'Home' },
@@ -20,9 +21,8 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
 
         {/* Logo */}
-        <Link to="/" className="flex flex-col leading-tight">
-          <span className="text-xl font-bold tracking-[0.2em] font-serif">KYOUDAI</span>
-          <span className="text-[10px] tracking-[0.3em] text-[#C9962A]">兄弟 · HOSTEL</span>
+        <Link to="/" className="flex items-center">
+          <Logo />
         </Link>
 
         {/* Desktop links */}
