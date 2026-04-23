@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import heroImage from '../assets/hero-image.png'
+import kirtipurPhoto from '../assets/kirtipur-photo.png'
 
 const highlights = [
   { icon: '🍱', title: 'Meals Included', desc: 'Breakfast, lunch and dinner prepared fresh daily.' },
@@ -106,9 +107,7 @@ export default function Home() {
       {/* About Kirtipur */}
       <section className="max-w-6xl mx-auto px-4 py-20 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="bg-[#1C2B4B] rounded-lg h-64 flex items-center justify-center">
-            <p className="text-white/20 text-sm tracking-widest">KIRTIPUR PHOTO</p>
-          </div>
+          <img src={kirtipurPhoto} alt="Kirtipur, Kathmandu" className="rounded-lg h-64 w-full object-cover" />
           <div className="flex flex-col gap-4">
             <p className="text-xs tracking-[0.4em] text-[#B5202A]">OUR LOCATION</p>
             <h2 className="font-serif text-3xl font-bold text-[#1C2B4B]">Kirtipur, Kathmandu</h2>

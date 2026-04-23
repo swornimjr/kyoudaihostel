@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import hostelPhoto from '../assets/hero-image.png'
+import kirtipurPhoto from '../assets/kirtipur-photo.png'
 
 const values = [
   { title: 'Brotherhood', desc: 'Kyoudai means siblings in Japanese. We believe living together builds lifelong bonds.' },
@@ -42,9 +44,7 @@ export default function About() {
               stay focused on what matters.
             </p>
           </div>
-          <div className="bg-[#1C2B4B] rounded-lg h-80 flex items-center justify-center">
-            <p className="text-white/20 text-sm tracking-widest">HOSTEL PHOTO</p>
-          </div>
+          <img src={hostelPhoto} alt="Kyoudai Hostel" className="rounded-lg h-80 w-full object-cover" />
         </div>
       </section>
 
@@ -70,9 +70,7 @@ export default function About() {
       {/* Kirtipur section */}
       <section className="max-w-6xl mx-auto px-4 py-20 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
-          <div className="bg-[#1C2B4B] rounded-lg h-72 flex items-center justify-center">
-            <p className="text-white/20 text-sm tracking-widest">KIRTIPUR PHOTO</p>
-          </div>
+          <img src={kirtipurPhoto} alt="Kirtipur, Kathmandu" className="rounded-lg h-72 w-full object-cover" />
           <div className="flex flex-col gap-6">
             <p className="text-xs tracking-[0.4em] text-[#B5202A]">OUR LOCATION</p>
             <h2 className="font-serif text-3xl font-bold text-[#1C2B4B]">Why Kirtipur?</h2>
