@@ -1,6 +1,15 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getRooms } from '../services/api'
+import room4 from '../assets/4-bedroom.png'
+import room6 from '../assets/6-bedroom.png'
+import room8 from '../assets/8-bedroom.png'
+
+const roomImages = {
+  'shared-4': room4,
+  'shared-6': room6,
+  'shared-8': room8,
+}
 
 const fallbackRooms = [
   {
@@ -87,10 +96,7 @@ export default function Rooms() {
             {rooms.map((room) => (
               <div key={room._id} className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-col">
 
-                {/* Image placeholder */}
-                <div className="bg-[#1C2B4B] h-48 flex items-center justify-center">
-                  <p className="text-white/20 text-xs tracking-widest">ROOM PHOTO</p>
-                </div>
+                <img src={roomImages[room.type]} alt={room.name} className="h-48 w-full object-cover" />
 
                 <div className="p-6 flex flex-col flex-1">
                   <p className="text-xs tracking-[0.3em] text-[#B5202A] mb-2">SHARED ROOM</p>
