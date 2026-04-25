@@ -50,6 +50,11 @@ export const getApplications = async (req, res) => {
   res.json(applications)
 }
 
+export const deleteApplication = async (req, res) => {
+  await Application.findByIdAndDelete(req.params.id)
+  res.json({ message: 'Deleted' })
+}
+
 export const updateApplicationStatus = async (req, res) => {
   const application = await Application.findByIdAndUpdate(
     req.params.id,

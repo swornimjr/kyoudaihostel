@@ -47,6 +47,11 @@ export const getBookings = async (req, res) => {
   res.json(bookings)
 }
 
+export const deleteBooking = async (req, res) => {
+  await Booking.findByIdAndDelete(req.params.id)
+  res.json({ message: 'Deleted' })
+}
+
 export const updateBookingStatus = async (req, res) => {
   const booking = await Booking.findByIdAndUpdate(
     req.params.id,

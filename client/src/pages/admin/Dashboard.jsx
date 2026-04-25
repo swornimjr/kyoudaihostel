@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../../context/AuthContext'
-import { getBookings, updateBookingStatus, getRooms, updateRoom, getApplications, updateApplicationStatus } from '../../services/api'
+import { getBookings, updateBookingStatus, deleteBooking, getRooms, updateRoom, getApplications, updateApplicationStatus, deleteApplication } from '../../services/api'
 
 const STATUS_COLORS = {
   pending: 'bg-yellow-100 text-yellow-800',
@@ -210,6 +210,26 @@ export default function Dashboard() {
     }
   }
 
+  const handleDeleteBooking = async (id) => {
+    if (!window.confirm('Delete this booking?')) return
+    try {
+      await deleteBooking(id)
+      setBookings((prev) => prev.filter((b) => b._id !== id))
+    } catch {
+      alert('Failed to delete.')
+    }
+  }
+
+  const handleDeleteApplication = async (id) => {
+    if (!window.confirm('Delete this application?')) return
+    try {
+      await deleteApplication(id)
+      setApplications((prev) => prev.filter((a) => a._id !== id))
+    } catch {
+      alert('Failed to delete.')
+    }
+  }
+
   const handleStatus = async (id, status) => {
     try {
       await updateBookingStatus(id, status)
@@ -398,6 +418,10 @@ export default function Dashboard() {
                         className="text-xs px-3 py-1.5 bg-[#1C2B4B] hover:bg-[#152038] text-white rounded tracking-widest transition-colors">
                         PRINT
                       </button>
+                      <button onClick={() => handleDeleteApplication(app._id)}
+                        className="text-xs px-3 py-1.5 bg-gray-100 hover:bg-red-50 text-gray-400 hover:text-red-500 rounded tracking-widest transition-colors">
+                        DELETE
+                      </button>
                     </div>
                     <p className="text-xs text-gray-300">{new Date(app.createdAt).toLocaleDateString()}</p>
                   </div>
@@ -579,6 +603,10 @@ export default function Dashboard() {
                         </button>
                       )}
                     </div>
+                    <button onClick={() => handleDeleteBooking(booking._id)}
+                      className="text-xs px-3 py-1.5 bg-gray-100 hover:bg-red-50 text-gray-400 hover:text-red-500 rounded tracking-widest transition-colors">
+                      DELETE
+                    </button>
                     <p className="text-xs text-gray-300">{new Date(booking.createdAt).toLocaleDateString()}</p>
                   </div>
 
