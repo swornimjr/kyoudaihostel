@@ -509,25 +509,24 @@ export default function Dashboard() {
         ) : (
           <div className="flex flex-col gap-4">
             {filtered.map((booking) => (
-              <div key={booking._id} className="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
-                <div className="flex flex-wrap gap-4 justify-between items-start">
+              <div key={booking._id} className="bg-white rounded-lg shadow-sm border border-gray-100 p-5">
+                <div className="grid grid-cols-[1fr_1fr_1fr_auto] gap-6 items-start">
 
                   {/* Guest info */}
                   <div className="flex flex-col gap-1">
+                    <p className="text-xs tracking-widest text-gray-400 mb-1">CONTACT</p>
                     <h3 className="font-semibold text-[#1C2B4B]">{booking.name}</h3>
-                    <a href={`mailto:${booking.email}`} className="text-sm text-gray-500 hover:text-[#B5202A]">
-                      {booking.email}
-                    </a>
-                    <a href={`tel:${booking.phone}`} className="text-sm text-gray-500 hover:text-[#B5202A]">
-                      {booking.phone}
-                    </a>
+                    {booking.email && (
+                      <a href={`mailto:${booking.email}`} className="text-xs text-gray-500 hover:text-[#B5202A]">{booking.email}</a>
+                    )}
+                    <a href={`tel:${booking.phone}`} className="text-xs text-gray-500 hover:text-[#B5202A]">{booking.phone}</a>
                   </div>
 
                   {/* Type + room / visit date */}
                   <div className="flex flex-col gap-1">
                     {booking.type === 'inspection' ? (
                       <>
-                        <p className="text-xs tracking-widest text-amber-600">INSPECTION REQUEST</p>
+                        <p className="text-xs tracking-widest text-amber-600 mb-1">INSPECTION</p>
                         <p className="text-sm text-[#1C2B4B]">
                           {booking.visitDate
                             ? new Date(booking.visitDate).toLocaleDateString('en-NP', { day: 'numeric', month: 'short', year: 'numeric' })
@@ -536,59 +535,51 @@ export default function Dashboard() {
                       </>
                     ) : (
                       <>
-                        <p className="text-xs tracking-widest text-gray-400">ROOM</p>
+                        <p className="text-xs tracking-widest text-gray-400 mb-1">ROOM</p>
                         <p className="text-sm font-semibold text-[#1C2B4B]">{booking.room?.name || 'N/A'}</p>
                         <p className="text-xs text-gray-400">NPR {booking.room?.price?.toLocaleString()}/mo</p>
-                        <p className="text-xs text-gray-400 mt-1">
-                          {booking.checkIn && new Date(booking.checkIn).toLocaleDateString('en-NP', { day: 'numeric', month: 'short', year: 'numeric' })}
-                          {booking.checkOut && ` → ${new Date(booking.checkOut).toLocaleDateString('en-NP', { day: 'numeric', month: 'short', year: 'numeric' })}`}
-                        </p>
                       </>
                     )}
                   </div>
 
                   {/* Message */}
-                  {booking.message && (
-                    <div className="flex flex-col gap-1 max-w-xs">
-                      <p className="text-xs tracking-widest text-gray-400">MESSAGE</p>
-                      <p className="text-sm text-gray-500 italic">"{booking.message}"</p>
-                    </div>
-                  )}
+                  <div className="flex flex-col gap-1">
+                    {booking.message ? (
+                      <>
+                        <p className="text-xs tracking-widest text-gray-400 mb-1">MESSAGE</p>
+                        <p className="text-xs text-gray-500 italic">"{booking.message}"</p>
+                      </>
+                    ) : (
+                      <p className="text-xs text-gray-300">—</p>
+                    )}
+                  </div>
 
                   {/* Status + actions */}
-                  <div className="flex flex-col gap-3 items-end">
+                  <div className="flex flex-col gap-2 items-end">
                     <span className={`text-xs px-3 py-1 rounded-full font-medium ${STATUS_COLORS[booking.status]}`}>
                       {booking.status.toUpperCase()}
                     </span>
-                    <div className="flex gap-2">
+                    <div className="flex gap-1.5">
                       {booking.status !== 'confirmed' && (
-                        <button
-                          onClick={() => handleStatus(booking._id, 'confirmed')}
-                          className="text-xs px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded tracking-widest transition-colors"
-                        >
+                        <button onClick={() => handleStatus(booking._id, 'confirmed')}
+                          className="text-xs px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded tracking-widest transition-colors">
                           CONFIRM
                         </button>
                       )}
                       {booking.status !== 'cancelled' && (
-                        <button
-                          onClick={() => handleStatus(booking._id, 'cancelled')}
-                          className="text-xs px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white rounded tracking-widest transition-colors"
-                        >
+                        <button onClick={() => handleStatus(booking._id, 'cancelled')}
+                          className="text-xs px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white rounded tracking-widest transition-colors">
                           CANCEL
                         </button>
                       )}
                       {booking.status !== 'pending' && (
-                        <button
-                          onClick={() => handleStatus(booking._id, 'pending')}
-                          className="text-xs px-3 py-1.5 bg-yellow-500 hover:bg-yellow-600 text-white rounded tracking-widest transition-colors"
-                        >
+                        <button onClick={() => handleStatus(booking._id, 'pending')}
+                          className="text-xs px-3 py-1.5 bg-yellow-500 hover:bg-yellow-600 text-white rounded tracking-widest transition-colors">
                           RESET
                         </button>
                       )}
                     </div>
-                    <p className="text-xs text-gray-300">
-                      {new Date(booking.createdAt).toLocaleDateString()}
-                    </p>
+                    <p className="text-xs text-gray-300">{new Date(booking.createdAt).toLocaleDateString()}</p>
                   </div>
 
                 </div>
