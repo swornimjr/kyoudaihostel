@@ -3,7 +3,12 @@ import sendEmail from '../utils/sendEmail.js'
 
 export const createBooking = async (req, res) => {
   try {
-    const booking = await Booking.create(req.body)
+    const data = { ...req.body }
+    if (!data.room) delete data.room
+    if (!data.checkIn) delete data.checkIn
+    if (!data.checkOut) delete data.checkOut
+    if (!data.visitDate) delete data.visitDate
+    const booking = await Booking.create(data)
     const isInspection = req.body.type === 'inspection'
     const adminEmails = process.env.ADMIN_EMAILS || ''
 
