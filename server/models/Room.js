@@ -2,7 +2,8 @@ import mongoose from 'mongoose'
 
 const roomSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  type: { type: String, enum: ['shared-4', 'shared-6', 'shared-8'], required: true },
+  roomNumber: { type: String, required: true, unique: true },
+  type: { type: String, enum: ['shared-2', 'shared-3', 'shared-4'], required: true },
   price: { type: Number, required: true },
   description: { type: String },
   amenities: [String],

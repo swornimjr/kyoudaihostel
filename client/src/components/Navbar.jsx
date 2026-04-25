@@ -44,9 +44,15 @@ export default function Navbar() {
           )}
           <Link
             to="/book"
+            className="border border-white/30 hover:border-white px-4 py-2 rounded text-sm tracking-widest transition-colors"
+          >
+            INSPECTION
+          </Link>
+          <Link
+            to="/apply"
             className="bg-[#B5202A] hover:bg-[#8B1520] px-4 py-2 rounded text-sm tracking-widest transition-colors"
           >
-            BOOK NOW
+            APPLY
           </Link>
         </div>
 
@@ -74,8 +80,12 @@ export default function Navbar() {
             </>
           )}
           <Link to="/book" onClick={() => setOpen(false)}
+            className="hover:text-[#C9962A] transition-colors">
+            Book Inspection
+          </Link>
+          <Link to="/apply" onClick={() => setOpen(false)}
             className="bg-[#B5202A] text-center px-4 py-2 rounded tracking-widest">
-            BOOK NOW
+            APPLY
           </Link>
         </div>
       )}

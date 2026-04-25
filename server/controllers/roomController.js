@@ -17,7 +17,8 @@ export const createRoom = async (req, res) => {
 }
 
 export const updateRoom = async (req, res) => {
-  const room = await Room.findByIdAndUpdate(req.params.id, req.body, { new: true })
+  const room = await Room.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true, runValidators: true })
+  if (!room) return res.status(404).json({ message: 'Room not found' })
   res.json(room)
 }
 

@@ -12,9 +12,9 @@ const highlights = [
 ]
 
 const rooms = [
-  { type: '4-Bed Shared', price: 'NPR 8,000', desc: 'Cozy 4-bed room with study desk for each resident.' },
-  { type: '6-Bed Shared', price: 'NPR 6,500', desc: 'Spacious 6-bed room, great value for students.' },
-  { type: '8-Bed Shared', price: 'NPR 5,500', desc: 'Budget-friendly 8-bed room, perfect for long stays.' },
+  { type: '2-Bed Room', price: 'NPR 13,000', desc: 'Private and cozy 2-bed shared room. Ideal for those who prefer a quieter space.' },
+  { type: '3-Bed Room', price: 'NPR 12,000', desc: 'Comfortable 3-bed shared room with study desks and ample storage.' },
+  { type: '4-Bed Room', price: 'NPR 11,000', desc: 'Spacious big room with 4 beds. Perfect for a lively atmosphere.' },
 ]
 
 export default function Home() {
@@ -34,13 +34,13 @@ export default function Home() {
             Focus on what you came for — we handle the rest.
           </p>
           <div className="flex gap-4 mt-4 flex-wrap justify-center">
-            <Link to="/book"
+            <Link to="/apply"
               className="bg-[#B5202A] hover:bg-[#8B1520] px-8 py-3 tracking-widest text-sm transition-colors rounded">
-              BOOK A BED
+              APPLY NOW
             </Link>
-            <Link to="/rooms"
-              className="border border-white/30 hover:border-[#C9962A] hover:text-[#C9962A] px-8 py-3 tracking-widest text-sm transition-colors rounded">
-              VIEW ROOMS
+            <Link to="/book"
+              className="border border-white/30 hover:border-white px-8 py-3 tracking-widest text-sm transition-colors rounded">
+              BOOK INSPECTION
             </Link>
           </div>
         </div>
@@ -129,14 +129,20 @@ export default function Home() {
       {/* CTA */}
       <section className="bg-[#B5202A] text-white py-16 text-center px-4">
         <p className="text-xs tracking-[0.4em] mb-4 text-white/70">READY TO JOIN?</p>
-        <h2 className="font-serif text-3xl font-bold mb-4">Book Your Bed Today</h2>
+        <h2 className="font-serif text-3xl font-bold mb-4">Secure Your Spot Today</h2>
         <p className="text-white/80 mb-8 max-w-md mx-auto">
-          Limited beds available. Secure your spot at Kyoudai Hostel and start your journey.
+          Limited beds available. Apply now or schedule an inspection visit first — no online payment required.
         </p>
-        <Link to="/book"
-          className="bg-white text-[#B5202A] hover:bg-[#F7F3EE] px-10 py-3 tracking-widest text-sm font-semibold transition-colors rounded">
-          BOOK NOW
-        </Link>
+        <div className="flex gap-4 justify-center flex-wrap">
+          <Link to="/apply"
+            className="bg-white text-[#B5202A] hover:bg-[#F7F3EE] px-10 py-3 tracking-widest text-sm font-semibold transition-colors rounded">
+            APPLY NOW
+          </Link>
+          <Link to="/book"
+            className="border border-white/50 hover:border-white px-10 py-3 tracking-widest text-sm transition-colors rounded">
+            BOOK INSPECTION
+          </Link>
+        </div>
       </section>
 
     </div>
