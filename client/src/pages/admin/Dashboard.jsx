@@ -9,6 +9,7 @@ const STATUS_COLORS = {
 }
 
 const apiBase = (import.meta.env.VITE_API_URL || 'https://kyoudai-hostel-api.onrender.com/api').replace('/api', '')
+const fileUrl = (path) => (path?.startsWith('http') ? path : `${apiBase}/${path}`)
 
 export default function Dashboard() {
   const { admin, logout } = useAuth()
@@ -66,8 +67,7 @@ export default function Dashboard() {
   }
 
   const printApplication = (app) => {
-    const apiBase = import.meta.env.VITE_API_URL?.replace('/api', '') || 'https://kyoudai-hostel-api.onrender.com'
-    const photoUrl = app.ppPhoto ? `${apiBase}/${app.ppPhoto}` : null
+    const photoUrl = app.ppPhoto ? fileUrl(app.ppPhoto) : null
     const w = window.open('', '_blank')
     w.document.write(`<!DOCTYPE html><html><head><title>Application - ${app.nameEnglish}</title>
     <style>
@@ -281,8 +281,8 @@ export default function Dashboard() {
                   {/* Student info */}
                   <div className="flex gap-3 min-w-[160px]">
                     {app.ppPhoto ? (
-                      <a href={`${apiBase}/${app.ppPhoto}`} target="_blank" rel="noopener noreferrer">
-                        <img src={`${apiBase}/${app.ppPhoto}`} alt="PP"
+                      <a href={fileUrl(app.ppPhoto)} target="_blank" rel="noopener noreferrer">
+                        <img src={fileUrl(app.ppPhoto)} alt="PP"
                           className="w-14 h-16 object-cover rounded border border-gray-200 flex-shrink-0 hover:opacity-80 transition-opacity" />
                       </a>
                     ) : (
@@ -327,7 +327,7 @@ export default function Dashboard() {
                       <div className="flex flex-wrap gap-1">
                         {app.idDocFiles.map((file, i) => {
                           const isImage = /\.(jpg|jpeg|png)$/i.test(file)
-                          const url = `${apiBase}/${file}`
+                          const url = fileUrl(file)
                           return isImage ? (
                             <a key={i} href={url} target="_blank" rel="noopener noreferrer">
                               <img src={url} alt={`ID ${i + 1}`}
