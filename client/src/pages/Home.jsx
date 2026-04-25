@@ -28,7 +28,7 @@ export default function Home() {
         <div className="relative z-10 flex flex-col items-center gap-6 max-w-2xl">
           <p className="text-xs tracking-[0.4em] text-[#C9962A]">KIRTIPUR · KATHMANDU, NEPAL</p>
           <h1 className="font-serif text-5xl md:text-7xl font-bold tracking-[0.15em]">KYOUDAI</h1>
-          <p className="text-sm tracking-[0.3em] text-[#C9962A]">兄弟 · HOSTEL</p>
+          <p className="text-base tracking-[0.3em] text-[#C9962A] drop-shadow-lg">兄弟 · HOSTEL</p>
           <p className="text-gray-300 text-lg leading-relaxed mt-2">
             A home away from home for students in Kathmandu.<br />
             Focus on what you came for — we handle the rest.

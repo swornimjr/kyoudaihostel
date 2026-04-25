@@ -129,14 +129,20 @@ export default function Rooms() {
                         <div key={room._id} className="flex items-center justify-between">
                           <span className="text-xs text-gray-400">Room {room.roomNumber}</span>
                           <div className="flex items-center gap-2">
-                            <div className="flex gap-0.5">
+                            <div className="flex gap-1">
                               {Array.from({ length: room.totalBeds }).map((_, i) => (
-                                <span key={i} className={`w-3 h-3 rounded-sm border ${
-                                  i < room.availableBeds ? 'bg-white border-gray-300' : 'bg-[#1C2B4B] border-[#1C2B4B]'
-                                }`} />
+                                i < room.availableBeds ? (
+                                  <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="#d1d5db" strokeWidth="1.5">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 10V6a1 1 0 011-1h16a1 1 0 011 1v4M3 10h18M3 10v6m18-6v6M3 16h18M5 16v2m14-2v2" />
+                                  </svg>
+                                ) : (
+                                  <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4" fill="#1C2B4B">
+                                    <path d="M3 10V6a1 1 0 011-1h16a1 1 0 011 1v4H3zm0 0h18v6H3v-6zm0 6v2h2v-2H3zm16 0v2h2v-2h-2z" />
+                                  </svg>
+                                )
                               ))}
                             </div>
-                            <span className={`text-xs font-medium ${
+                            <span className={`text-xs font-medium w-16 text-right ${
                               room.availableBeds === 0 ? 'text-red-400'
                               : room.availableBeds === room.totalBeds ? 'text-green-600'
                               : 'text-amber-500'
