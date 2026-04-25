@@ -4,11 +4,33 @@ import sendEmail from '../utils/sendEmail.js'
 export const createBooking = async (req, res) => {
   try {
     const booking = await Booking.create(req.body)
+    const isInspection = req.body.type === 'inspection'
+    const adminEmails = process.env.ADMIN_EMAILS || ''
+
+    // Notify admins
     sendEmail({
-      to: req.body.email,
-      subject: 'Booking Request Received — Kyoudai Hostel',
-      text: `Hi ${req.body.name}, we received your booking request. We will confirm shortly. — Kyoudai Hostel, Kirtipur`,
+      to: adminEmails,
+      subject: isInspection
+        ? `New Inspection Request — ${req.body.name}`
+        : `New Booking Request — ${req.body.name}`,
+      text: isInspection
+        ? `A new inspection visit has been requested.\n\nName: ${req.body.name}\nPhone: ${req.body.phone}\nEmail: ${req.body.email || '—'}\nPreferred Visit Date: ${req.body.visitDate || '—'}\nMessage: ${req.body.message || '—'}\n\nLog in to the admin dashboard to confirm.`
+        : `A new booking request has been submitted.\n\nName: ${req.body.name}\nPhone: ${req.body.phone}\nEmail: ${req.body.email || '—'}\nMessage: ${req.body.message || '—'}\n\nLog in to the admin dashboard to confirm.`,
     }).catch(() => {})
+
+    // Confirm to visitor/student if email provided
+    if (req.body.email) {
+      sendEmail({
+        to: req.body.email,
+        subject: isInspection
+          ? 'Inspection Request Received — Kyoudai Boy\'s Hostel'
+          : 'Booking Request Received — Kyoudai Hostel',
+        text: isInspection
+          ? `Dear ${req.body.name},\n\nThank you for your interest in Kyoudai Boy's Hostel, Kirtipur.\n\nWe have received your inspection request for ${req.body.visitDate || 'your preferred date'} and will confirm the visit time via phone or WhatsApp within a few hours.\n\nRegards,\nKyoudai Boy's Hostel\nKirtipur, Kathmandu`
+          : `Hi ${req.body.name}, we received your booking request. We will confirm shortly. — Kyoudai Hostel, Kirtipur`,
+      }).catch(() => {})
+    }
+
     res.status(201).json(booking)
   } catch (err) {
     res.status(400).json({ message: err.message })
