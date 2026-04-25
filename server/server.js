@@ -1,7 +1,6 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import fs from 'fs'
 import connectDB from './config/db.js'
 import authRoutes from './routes/authRoutes.js'
 import roomRoutes from './routes/roomRoutes.js'
@@ -11,13 +10,10 @@ import applicationRoutes from './routes/applicationRoutes.js'
 dotenv.config()
 connectDB()
 
-fs.mkdirSync('uploads', { recursive: true })
-
 const app = express()
 
 app.use(cors())
 app.use(express.json())
-app.use('/uploads', express.static('uploads'))
 
 app.use('/api/auth', authRoutes)
 app.use('/api/rooms', roomRoutes)

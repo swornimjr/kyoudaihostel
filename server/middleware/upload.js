@@ -1,18 +1,20 @@
+import { v2 as cloudinary } from 'cloudinary'
+import { CloudinaryStorage } from 'multer-storage-cloudinary'
 import multer from 'multer'
-import path from 'path'
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, 'uploads/'),
-  filename: (req, file, cb) => {
-    const unique = `${Date.now()}-${Math.round(Math.random() * 1e9)}`
-    cb(null, unique + path.extname(file.originalname))
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+})
+
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'kyoudai-hostel',
+    allowed_formats: ['jpg', 'jpeg', 'png', 'pdf'],
+    resource_type: 'auto',
   },
 })
 
-const fileFilter = (req, file, cb) => {
-  const allowed = /jpeg|jpg|png|pdf/
-  const ext = path.extname(file.originalname).toLowerCase()
-  allowed.test(ext) ? cb(null, true) : cb(new Error('Only images and PDF files are allowed'))
-}
-
-export default multer({ storage, fileFilter, limits: { fileSize: 5 * 1024 * 1024 } })
+export default multer({ storage, limits: { fileSize: 5 * 1024 * 1024 } })
