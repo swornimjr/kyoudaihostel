@@ -7,7 +7,7 @@ const amenities = [
     icon: '🍱',
     title: 'Three Meals a Day',
     desc: 'Freshly prepared breakfast, khaja, and dinner every day. No need to worry about cooking or finding a restaurant — just focus on your studies.',
-    details: ['Breakfast: 8am – 9am', 'Khaja: 9:30am – 11am', 'Lunch: 3:30pm – 5pm', 'Dinner: 7pm – 8pm'],
+    details: ['Breakfast: 8am – 9am', 'Lunch: 9:30am – 11am', 'Khaja: 3:30pm – 5pm', 'Dinner: 7pm – 8pm'],
   },
   {
     icon: '👕',
