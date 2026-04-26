@@ -296,7 +296,7 @@ export default function Dashboard() {
               <div className="bg-white rounded-lg p-16 text-center text-gray-400 border border-gray-100">No applications yet.</div>
             ) : applications.map((app) => (
               <div key={app._id} className="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
-                <div className="flex flex-wrap gap-6 justify-between items-start">
+                <div className="flex flex-col md:flex-row flex-wrap gap-6 justify-between items-start">
 
                   {/* Student info */}
                   <div className="flex gap-3 min-w-[160px]">
@@ -370,7 +370,7 @@ export default function Dashboard() {
                   </div>
 
                   {/* Status + actions */}
-                  <div className="flex flex-col gap-3 items-end">
+                  <div className="flex flex-col gap-3 items-start md:items-end">
                     <div className="flex items-center gap-2">
                       <label className="text-xs text-gray-400 tracking-widest">FORM NO.</label>
                       <input
@@ -395,7 +395,7 @@ export default function Dashboard() {
                     }`}>
                       {app.status.toUpperCase()}
                     </span>
-                    <div className="flex gap-2 flex-wrap justify-end">
+                    <div className="flex gap-2 flex-wrap">
                       {app.status !== 'approved' && (
                         <button onClick={() => handleAppStatus(app._id, 'approved')}
                           className="text-xs px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded tracking-widest transition-colors">
@@ -534,7 +534,7 @@ export default function Dashboard() {
           <div className="flex flex-col gap-4">
             {filtered.map((booking) => (
               <div key={booking._id} className="bg-white rounded-lg shadow-sm border border-gray-100 p-5">
-                <div className="grid grid-cols-[1fr_1fr_1fr_auto] gap-6 items-start">
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_auto] gap-4 md:gap-6 items-start">
 
                   {/* Guest info */}
                   <div className="flex flex-col gap-1">
@@ -579,11 +579,11 @@ export default function Dashboard() {
                   </div>
 
                   {/* Status + actions */}
-                  <div className="flex flex-col gap-2 items-end">
+                  <div className="flex flex-col gap-2 items-start md:items-end">
                     <span className={`text-xs px-3 py-1 rounded-full font-medium ${STATUS_COLORS[booking.status]}`}>
                       {booking.status.toUpperCase()}
                     </span>
-                    <div className="flex gap-1.5">
+                    <div className="flex flex-wrap gap-1.5">
                       {booking.status !== 'confirmed' && (
                         <button onClick={() => handleStatus(booking._id, 'confirmed')}
                           className="text-xs px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded tracking-widest transition-colors">
