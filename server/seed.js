@@ -23,7 +23,7 @@ const seed = async () => {
     // 2-Bed Rooms (2 rooms)
     {
       name: '2-Bed Room',
-      roomNumber: '101',
+      roomNumber: '201',
       type: 'shared-2',
       price: 13000,
       description: 'Private and cozy 2-bed shared room. Ideal for those who prefer a quieter, more personal space.',
@@ -33,7 +33,7 @@ const seed = async () => {
     },
     {
       name: '2-Bed Room',
-      roomNumber: '102',
+      roomNumber: '202',
       type: 'shared-2',
       price: 13000,
       description: 'Private and cozy 2-bed shared room. Ideal for those who prefer a quieter, more personal space.',
@@ -41,10 +41,10 @@ const seed = async () => {
       totalBeds: 2,
       availableBeds: 0,
     },
-    // 3-Bed Rooms (6 rooms — 5 fully booked, 1 with 2 beds available)
+    // 3-Bed Rooms (6 rooms)
     {
       name: '3-Bed Room',
-      roomNumber: '201',
+      roomNumber: '301',
       type: 'shared-3',
       price: 12000,
       description: 'Comfortable 3-bed shared room with study desks and ample storage for each resident.',
@@ -54,7 +54,7 @@ const seed = async () => {
     },
     {
       name: '3-Bed Room',
-      roomNumber: '202',
+      roomNumber: '302',
       type: 'shared-3',
       price: 12000,
       description: 'Comfortable 3-bed shared room with study desks and ample storage for each resident.',
@@ -64,7 +64,7 @@ const seed = async () => {
     },
     {
       name: '3-Bed Room',
-      roomNumber: '203',
+      roomNumber: '303',
       type: 'shared-3',
       price: 12000,
       description: 'Comfortable 3-bed shared room with study desks and ample storage for each resident.',
@@ -74,7 +74,7 @@ const seed = async () => {
     },
     {
       name: '3-Bed Room',
-      roomNumber: '204',
+      roomNumber: '304',
       type: 'shared-3',
       price: 12000,
       description: 'Comfortable 3-bed shared room with study desks and ample storage for each resident.',
@@ -84,7 +84,7 @@ const seed = async () => {
     },
     {
       name: '3-Bed Room',
-      roomNumber: '205',
+      roomNumber: '305',
       type: 'shared-3',
       price: 12000,
       description: 'Comfortable 3-bed shared room with study desks and ample storage for each resident.',
@@ -94,7 +94,7 @@ const seed = async () => {
     },
     {
       name: '3-Bed Room',
-      roomNumber: '206',
+      roomNumber: '306',
       type: 'shared-3',
       price: 12000,
       description: 'Comfortable 3-bed shared room with study desks and ample storage for each resident.',
@@ -105,7 +105,7 @@ const seed = async () => {
     // 4-Bed Room (1 big room)
     {
       name: '4-Bed Room',
-      roomNumber: '301',
+      roomNumber: '401',
       type: 'shared-4',
       price: 11000,
       description: 'Spacious big room with 4 beds. Perfect for groups of friends or those who enjoy a lively atmosphere.',

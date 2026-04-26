@@ -6,8 +6,8 @@ const amenities = [
   {
     icon: '🍱',
     title: 'Three Meals a Day',
-    desc: 'Freshly prepared breakfast, lunch, and dinner every day. No need to worry about cooking or finding a restaurant — just focus on your studies.',
-    details: ['Breakfast: 7am – 9am', 'Lunch: 12pm – 2pm', 'Dinner: 7pm – 9pm'],
+    desc: 'Freshly prepared breakfast, khaja, and dinner every day. No need to worry about cooking or finding a restaurant — just focus on your studies.',
+    details: ['Breakfast: 8am – 9am', 'Khaja: 9:30am – 11am', 'Lunch: 3:30pm – 5pm', 'Dinner: 7pm – 8pm'],
   },
   {
     icon: '👕',
@@ -37,7 +37,13 @@ const amenities = [
     icon: '💡',
     title: 'Utilities Included',
     desc: 'Water, electricity, and all basic utilities are included in your monthly fee. No surprise bills.',
-    details: ['24/7 electricity', 'Running hot water', 'No extra charges'],
+    details: ['24/7 electricity', 'No extra charges'],
+  },
+  {
+    icon: '🎉',
+    title: 'Festival Leave Policy',
+    desc: 'Going home for Dashain or Tihar? We do not charge rent for the days you are away during major festivals.',
+    details: ['No charge during Dashain', 'No charge during Tihar', 'Just let us know in advance'],
   },
 ]
 
