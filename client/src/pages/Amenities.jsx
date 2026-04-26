@@ -5,15 +5,15 @@ import loungePhoto from '../assets/lounge.jpeg'
 const amenities = [
   {
     icon: '🍱',
-    title: 'Three Meals a Day',
-    desc: 'Freshly prepared breakfast, khaja, and dinner every day. No need to worry about cooking or finding a restaurant — just focus on your studies.',
+    title: 'Four Meals a Day',
+    desc: 'Freshly prepared breakfast, lunch, khaja, and dinner every day. No need to worry about cooking or finding a restaurant — just focus on your studies.',
     details: ['Breakfast: 8am – 9am', 'Lunch: 9:30am – 11am', 'Khaja: 3:30pm – 5pm', 'Dinner: 7pm – 8pm'],
   },
   {
     icon: '👕',
     title: 'Laundry Service',
     desc: 'Regular laundry collection and return so your clothes are always clean without taking time out of your schedule.',
-    details: ['Twice a week collection', 'Washed & folded return', 'Included in monthly fee'],
+    details: [],
   },
   {
     icon: '📶',
