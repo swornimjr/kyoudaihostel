@@ -39,8 +39,8 @@ export default function Footer() {
           <a href="tel:+9779863035404" className="text-sm text-gray-400 hover:text-[#C9962A] transition-colors">
             +977 986-3035404
           </a>
-          <a href="mailto:info@kyoudaihostel.com" className="text-sm text-gray-400 hover:text-[#C9962A] transition-colors">
-            info@kyoudaihostel.com
+          <a href="mailto:kyoudaihostel@gmail.com" className="text-sm text-gray-400 hover:text-[#C9962A] transition-colors">
+            kyoudaihostel@gmail.com
           </a>
           <a
             href="https://wa.me/9779863035404"

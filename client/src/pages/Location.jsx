@@ -62,7 +62,7 @@ export default function Location() {
           </div>
           <div>
             <p className="text-xs tracking-widest text-white/60 mb-1">EMAIL</p>
-            <a href="mailto:info@kyoudaihostel.com" className="text-sm font-semibold hover:underline">info@kyoudaihostel.com</a>
+            <a href="mailto:kyoudaihostel@gmail.com" className="text-sm font-semibold hover:underline">kyoudaihostel@gmail.com</a>
           </div>
         </div>
       </section>
