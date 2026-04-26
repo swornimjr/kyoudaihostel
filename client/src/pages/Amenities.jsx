@@ -45,6 +45,12 @@ const amenities = [
     desc: 'Going home for Dashain or Tihar? We do not charge rent for the days you are away during major festivals.',
     details: ['No charge during Dashain', 'No charge during Tihar', 'Just let us know in advance'],
   },
+  {
+    icon: '🏠',
+    title: 'Long Home Visit Discount',
+    desc: 'If you go home for more than 15 consecutive days, we charge only 50% of your monthly fee for those days away — so you are not paying full rent while you are not here.',
+    details: ['50% off for 15+ day home visits', 'Available once per year', 'For students staying 6+ months'],
+  },
 ]
 
 export default function Amenities() {
