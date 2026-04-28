@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useSearchParams } from 'react-router-dom'
 import { getRooms, createBooking } from '../services/api'
 
@@ -33,6 +34,11 @@ export default function Book() {
 
   return (
     <div className="flex flex-col">
+      <Helmet>
+        <title>Book an Inspection — Visit Kyoudai Hostel, Kirtipur</title>
+        <meta name="description" content="Schedule a free visit to Kyoudai Boy's Hostel in Kirtipur, Kathmandu before applying. See the rooms and meet the community — no payment required to book." />
+        <link rel="canonical" href="https://kyoudaihostel.com/book" />
+      </Helmet>
       <section className="bg-[#1C2B4B] text-white py-20 text-center px-4">
         <p className="text-xs tracking-[0.4em] text-[#C9962A] mb-3">VISIT US</p>
         <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-widest">Book an Inspection</h1>

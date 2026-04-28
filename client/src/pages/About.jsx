@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import hostelPhoto from '../assets/hero-image.png'
 import kirtipurPhoto from '../assets/kirtipur-photo.png'
@@ -12,6 +13,11 @@ const values = [
 export default function About() {
   return (
     <div className="flex flex-col">
+      <Helmet>
+        <title>About Kyoudai Boy's Hostel — Student Community in Kirtipur, Kathmandu</title>
+        <meta name="description" content="Kyoudai (兄弟) means siblings in Japanese. We built a student hostel in Kirtipur, Kathmandu where focused students live, study, and grow together near Tribhuvan University." />
+        <link rel="canonical" href="https://kyoudaihostel.com/about" />
+      </Helmet>
 
       {/* Header */}
       <section className="bg-[#1C2B4B] text-white py-20 text-center px-4">

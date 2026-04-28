@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import diningPhoto from '../assets/dinner-lunch.jpeg'
 import loungePhoto from '../assets/lounge.jpeg'
@@ -56,6 +57,11 @@ const amenities = [
 export default function Amenities() {
   return (
     <div className="flex flex-col">
+      <Helmet>
+        <title>Amenities — Meals, Wi-Fi & More | Kyoudai Hostel, Kirtipur</title>
+        <meta name="description" content="Kyoudai Hostel includes four daily meals (breakfast, lunch, khaja, dinner), free Wi-Fi, laundry, a study area, regular cleaning, and utilities — all in one monthly fee." />
+        <link rel="canonical" href="https://kyoudaihostel.com/amenities" />
+      </Helmet>
 
       {/* Header */}
       <section className="bg-[#1C2B4B] text-white py-20 text-center px-4">

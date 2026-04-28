@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useSearchParams } from 'react-router-dom'
 import { getRooms } from '../services/api'
 import api from '../services/api'
@@ -143,6 +144,11 @@ export default function Apply() {
 
   return (
     <div className="flex flex-col">
+      <Helmet>
+        <title>Apply for a Room — Kyoudai Boy's Hostel, Kirtipur</title>
+        <meta name="description" content="Apply online for a shared student room at Kyoudai Hostel in Kirtipur, Kathmandu. NPR 11,000–13,000/month, all inclusive. Admission fee NPR 1,200 payable on arrival." />
+        <link rel="canonical" href="https://kyoudaihostel.com/apply" />
+      </Helmet>
       <section className="bg-[#1C2B4B] text-white py-20 text-center px-4">
         <p className="text-xs tracking-[0.4em] text-[#C9962A] mb-3">JOIN US</p>
         <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-widest">Student Application</h1>

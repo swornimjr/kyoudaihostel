@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import heroImage from '../assets/hero-image.png'
 import kirtipurPhoto from '../assets/kirtipur-photo.png'
@@ -20,6 +21,11 @@ const rooms = [
 export default function Home() {
   return (
     <div className="flex flex-col">
+      <Helmet>
+        <title>Kyoudai Boy's Hostel — Affordable Student Hostel in Kirtipur, Kathmandu</title>
+        <meta name="description" content="Affordable student hostel in Kirtipur, Kathmandu. Shared rooms from NPR 11,000/month with four meals daily, Wi-Fi, laundry, and a study-friendly community near Tribhuvan University." />
+        <link rel="canonical" href="https://kyoudaihostel.com/" />
+      </Helmet>
 
       {/* Hero */}
       <section className="text-white min-h-[90vh] flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 
 const directions = [
@@ -21,6 +22,11 @@ const directions = [
 export default function Location() {
   return (
     <div className="flex flex-col">
+      <Helmet>
+        <title>Location & Directions — Kyoudai Hostel, Kirtipur, Kathmandu</title>
+        <meta name="description" content="Kyoudai Hostel is located in Kirtipur, Kathmandu — 10 min walk from Tribhuvan University, 30–45 min from Kathmandu city center. Get directions and contact info." />
+        <link rel="canonical" href="https://kyoudaihostel.com/location" />
+      </Helmet>
 
       {/* Header */}
       <section className="bg-[#1C2B4B] text-white py-20 text-center px-4">

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { getRooms } from '../services/api'
 import room4 from '../assets/4-bedroom.png'
@@ -59,6 +60,7 @@ export default function Rooms() {
   const [rooms, setRooms] = useState(fallbackRooms)
   const [loading, setLoading] = useState(true)
 
+
   useEffect(() => {
     getRooms()
       .then((res) => { if (res.data.length > 0) setRooms(res.data) })
@@ -68,6 +70,11 @@ export default function Rooms() {
 
   return (
     <div className="flex flex-col">
+      <Helmet>
+        <title>Rooms & Pricing — Kyoudai Boy's Hostel, Kirtipur</title>
+        <meta name="description" content="Shared student rooms in Kirtipur, Kathmandu. 2-bed rooms from NPR 13,000/month, 3-bed from NPR 12,000, 4-bed from NPR 11,000. All-inclusive: meals, Wi-Fi, utilities." />
+        <link rel="canonical" href="https://kyoudaihostel.com/rooms" />
+      </Helmet>
 
       {/* Page header */}
       <section className="bg-[#1C2B4B] text-white py-20 text-center px-4">
