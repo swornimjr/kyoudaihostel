@@ -25,7 +25,7 @@ export const createApplication = async (req, res) => {
       to: adminEmails,
       subject: `New Application — ${data.nameEnglish}`,
       text: `A new student application has been submitted.\n\nStudent: ${data.nameEnglish}\nContact: ${data.contactNo}\nEmail: ${data.email || '—'}\nInstitute: ${data.educationalInstitute}\nLevel: ${data.levelOfStudy}\nDuration: ${data.stayDuration}\nPreferred Move-in Date: ${data.moveInDate || '—'}\nFood: ${data.foodPreference}\nFather: ${data.fatherName} (${data.fatherContact})\nVisit requested: ${data.wantsToVisit === 'true' || data.wantsToVisit === true ? 'Yes' : 'No'}\n\nLog in to the admin dashboard to review and approve.`,
-    }).catch(() => {})
+    }).catch((err) => console.error('Admin email failed:', err.message))
 
     // Confirm to student if they provided email
     if (data.email) {
@@ -33,7 +33,7 @@ export const createApplication = async (req, res) => {
         to: data.email,
         subject: 'Application Received — Kyoudai Boy\'s Hostel',
         text: `Dear ${data.nameEnglish},\n\nThank you for submitting your application to Kyoudai Boy's Hostel, Kirtipur.\n\nWe have received your application and will review it shortly. Our team will contact you via phone (${data.contactNo}) or email within 24 hours.\n\nYour preferred move-in date: ${data.moveInDate || '—'}\nAdmission fee of NPR 1,200 is payable upon arrival.\n\nRegards,\nKyoudai Boy's Hostel\nKirtipur, Kathmandu`,
-      }).catch(() => {})
+      }).catch((err) => console.error('Student email failed:', err.message))
     }
 
     res.status(201).json(application)

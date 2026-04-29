@@ -21,7 +21,7 @@ export const createBooking = async (req, res) => {
       text: isInspection
         ? `A new inspection visit has been requested.\n\nName: ${req.body.name}\nPhone: ${req.body.phone}\nEmail: ${req.body.email || '—'}\nPreferred Visit Date: ${req.body.visitDate || '—'}\nMessage: ${req.body.message || '—'}\n\nLog in to the admin dashboard to confirm.`
         : `A new booking request has been submitted.\n\nName: ${req.body.name}\nPhone: ${req.body.phone}\nEmail: ${req.body.email || '—'}\nMessage: ${req.body.message || '—'}\n\nLog in to the admin dashboard to confirm.`,
-    }).catch(() => {})
+    }).catch((err) => console.error('Admin email failed:', err.message))
 
     // Confirm to visitor/student if email provided
     if (req.body.email) {
@@ -33,7 +33,7 @@ export const createBooking = async (req, res) => {
         text: isInspection
           ? `Dear ${req.body.name},\n\nThank you for your interest in Kyoudai Boy's Hostel, Kirtipur.\n\nWe have received your inspection request for ${req.body.visitDate || 'your preferred date'} and will confirm the visit time via phone or WhatsApp within a few hours.\n\nRegards,\nKyoudai Boy's Hostel\nKirtipur, Kathmandu`
           : `Hi ${req.body.name}, we received your booking request. We will confirm shortly. — Kyoudai Hostel, Kirtipur`,
-      }).catch(() => {})
+      }).catch((err) => console.error('Visitor email failed:', err.message))
     }
 
     res.status(201).json(booking)
